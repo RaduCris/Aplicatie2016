@@ -51,7 +51,8 @@ angular.module('btravelappApp')
                 parent: 'btr',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    //authorities: ['ROLE_USER'], MODIFICAT 08.03.2016
+                	authorities: ['ROLE_MANAGER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -86,7 +87,8 @@ angular.module('btravelappApp')
                 parent: 'btr',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    //authorities: ['ROLE_USER'],  MODIFICAT 08.03.2016
+                	authorities: ['ROLE_SUPPLIER'], 
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -109,7 +111,8 @@ angular.module('btravelappApp')
                 parent: 'btr',
                 url: '/{id}/delete',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    //authorities: ['ROLE_USER'], MODIFICAT 08.03.2016
+                	authorities: ['ROLE_MANAGER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({

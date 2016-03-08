@@ -3,7 +3,7 @@
 angular.module('btravelappApp')
     .controller('UserManagementController', function ($scope, Principal, User, ParseLinks, Language) {
         $scope.users = [];
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_MANAGER", "ROLE_SUPPLIER"]; //MODIFICAT 08.03.2016
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });
