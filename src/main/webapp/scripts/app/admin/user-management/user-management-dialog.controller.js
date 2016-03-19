@@ -4,6 +4,7 @@ angular.module('btravelappApp').controller('UserManagementDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'User', 'Language',
         function($scope, $stateParams, $uibModalInstance, entity, User, Language) {
 
+    	$scope.users = User.query(); //adaugat 11.03.2016
         $scope.user = entity;
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_MANAGER", "ROLE_SUPPLIER"]; //MODIFICAT 08.03.2016
         Language.getAll().then(function (languages) {

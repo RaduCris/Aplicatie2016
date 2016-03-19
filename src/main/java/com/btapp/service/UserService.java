@@ -91,7 +91,7 @@ public class UserService {
     }
 
     public User createUserInformation(String login, String password, String firstName, String lastName, String email,
-        String langKey) {
+        String langKey, String idManager) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
@@ -104,6 +104,7 @@ public class UserService {
         newUser.setLastName(lastName);
         newUser.setEmail(email);
         newUser.setLangKey(langKey);
+        newUser.setLangKey(idManager);
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
@@ -118,6 +119,7 @@ public class UserService {
 
     public User createUser(ManagedUserDTO managedUserDTO) {
         User user = new User();
+        user.setIdManager(managedUserDTO.getIdManager());
         user.setLogin(managedUserDTO.getLogin());
         user.setFirstName(managedUserDTO.getFirstName());
         user.setLastName(managedUserDTO.getLastName());
@@ -145,12 +147,13 @@ public class UserService {
         return user;
     }
 
-    public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
+    public void updateUserInformation(String firstName, String lastName, String email, String langKey, String idManager) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).ifPresent(u -> {
             u.setFirstName(firstName);
             u.setLastName(lastName);
             u.setEmail(email);
             u.setLangKey(langKey);
+            u.setIdManager(idManager);
             userRepository.save(u);
             userSearchRepository.save(u);
             log.debug("Changed Information for User: {}", u);

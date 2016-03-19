@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "btravelapp",
+        "title": "Business Travel Application",
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
@@ -117,5 +117,5 @@
         "emailexists": "E-mail is already in use!",
         "idexists": "A new {{entityName}} cannot already have an ID"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "&#169;Licence 2015-2016 Radu Constantin Cristian"
 }

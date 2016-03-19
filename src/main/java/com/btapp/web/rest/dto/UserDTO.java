@@ -34,8 +34,19 @@ public class UserDTO {
     @Email
     @Size(min = 5, max = 100)
     private String email;
+    
+    @Size(max = 10)
+    private String idManager;   //modificat 11.03.2016 (atribut, set si get)
 
-    private boolean activated = false;
+    public String getIdManager() {
+		return idManager;
+	}
+
+	public void setIdManager(String idManager) {
+		this.idManager = idManager;
+	}
+
+	private boolean activated = false;
 
     @Size(min = 2, max = 5)
     private String langKey;
@@ -47,19 +58,20 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this(user.getLogin(), null, user.getFirstName(), user.getLastName(),
-            user.getEmail(), user.getActivated(), user.getLangKey(),
+            user.getEmail(), user.getActivated(), user.getLangKey(), user.getIdManager(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String password, String firstName, String lastName,
-        String email, boolean activated, String langKey, Set<String> authorities) {
+        String email, boolean activated, String langKey, String idManager, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.idManager = idManager;
         this.activated = activated;
         this.langKey = langKey;
         this.authorities = authorities;
@@ -105,6 +117,7 @@ public class UserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", idManager='" + idManager + '\'' + //modificat 11.03.2016 
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", authorities=" + authorities +

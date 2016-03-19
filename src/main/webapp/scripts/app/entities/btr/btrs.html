@@ -30,25 +30,25 @@ class="hidden-xs"                        translate="btravelappApp.btr.home.creat
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="id_user"><span translate="btravelappApp.btr.id_user">Id_user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                 <!--     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id_user"><span translate="btravelappApp.btr.id_user">Id_user</span> <span class="glyphicon glyphicon-sort"></span></th> -->
                     <th jh-sort-by="status"><span translate="btravelappApp.btr.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="start_date"><span translate="btravelappApp.btr.start_date">Start_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="end_date"><span translate="btravelappApp.btr.end_date">End_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="assigned_to"><span translate="btravelappApp.btr.assigned_to">Assigned_to</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="assigned_from"><span translate="btravelappApp.btr.assigned_from">Assigned_from</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="start_date"><span translate="btravelappApp.btr.start_date">Start Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="end_date"><span translate="btravelappApp.btr.end_date">End Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="assigned_to"><span translate="btravelappApp.btr.assigned_to">Assigned To</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="assigned_from"><span translate="btravelappApp.btr.assigned_from">Assigned From</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="location"><span translate="btravelappApp.btr.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="center_cost"><span translate="btravelappApp.btr.center_cost">Center_cost</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="request_date"><span translate="btravelappApp.btr.request_date">Request_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="last_modified_date"><span translate="btravelappApp.btr.last_modified_date">Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.login"><span translate="btravelappApp.btr.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="center_cost"><span translate="btravelappApp.btr.center_cost">Center Cost</span> <span class="glyphicon glyphicon-sort"></span></th>
+              		<th jh-sort-by="request_date"><span translate="btravelappApp.btr.request_date">Request Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_date"><span translate="btravelappApp.btr.last_modified_date">Last Modified Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="btravelappApp.btr.user">Employee</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="btr in btrs track by btr.id">
-                    <td><a ui-sref="btr.detail({id:btr.id})">{{btr.id}}</a></td>
-                    <td>{{btr.id_user}}</td>
+                   <!--  <td><a ui-sref="btr.detail({id:btr.id})">{{btr.id}}</a></td>
+                    <td>{{btr.id_user}}</td> -->
                     <td>{{btr.status}}</td>
                     <td>{{btr.start_date | date:'medium'}}</td>
                     <td>{{btr.end_date | date:'medium'}}</td>

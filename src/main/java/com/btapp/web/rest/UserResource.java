@@ -141,6 +141,7 @@ public class UserResource {
         return userRepository
             .findOneById(managedUserDTO.getId())
             .map(user -> {
+            	user.setIdManager(managedUserDTO.getIdManager()); //modificat 11.03.2016
                 user.setLogin(managedUserDTO.getLogin());
                 user.setFirstName(managedUserDTO.getFirstName());
                 user.setLastName(managedUserDTO.getLastName());
@@ -193,6 +194,54 @@ public class UserResource {
                 .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    
+    // modificat 15.03.2016
+    /**
+     * GET  /users/manager -> get the "login" user for managers
+     */
+    @RequestMapping(value = "/users/manager",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<ManagedUserDTO> getIdManager() {
+    	
+        return userRepository.findAllByAuthorities(authorityRepository.findByName(AuthoritiesConstants.MANAGER))
+                .map(ManagedUserDTO::new)
+                .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+    
+ // modificat 17.03.2016
+    /**
+     * GET  /users/supplier -> get the "login" user for supplier
+     */
+    @RequestMapping(value = "/users/supplier",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<ManagedUserDTO> getIdSupplier() {
+    	
+        return userRepository.findAllByAuthorities(authorityRepository.findByName(AuthoritiesConstants.SUPPLIER))
+                .map(ManagedUserDTO::new)
+                .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+    
+    /**
+     * GET  /users/employee -> get the "login" user for employee
+     */
+    @RequestMapping(value = "/users/employee",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<ManagedUserDTO> getIdUser() {
+    	
+        return userRepository.findAllByAuthorities(authorityRepository.findByName(AuthoritiesConstants.USER))
+                .map(ManagedUserDTO::new)
+                .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+    
     /**
      * DELETE  USER :login -> delete the "login" User.
      */

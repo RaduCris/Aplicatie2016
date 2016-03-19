@@ -38,8 +38,8 @@ angular.module('btravelappApp')
             $scope.user = {
                 id: null, login: null, firstName: null, lastName: null, email: null,
                 activated: null, langKey: null, createdBy: null, createdDate: null,
-                lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
-                resetKey: null, authorities: null
+                lastModifiedBy: null, lastModifiedDate: null, idManager: null, resetDate: null, 
+                resetKey: null, authorities: null 								//modificat 09.03.2016
             };
             $scope.editForm.$setPristine();
             $scope.editForm.$setUntouched();

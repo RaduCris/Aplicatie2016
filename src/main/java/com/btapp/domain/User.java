@@ -72,6 +72,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date", nullable = true)
     private ZonedDateTime resetDate = null;
 
+    //@NotNull									//
+    @Column(name = "id_manager") // adaugate 08.03.2016
+    private String idManager;					//
+    
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -165,7 +169,17 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setResetDate(ZonedDateTime resetDate) {
        this.resetDate = resetDate;
     }
-
+    
+    public void setIdManager(String idManager) { // modificat 08.03.2016
+        this.idManager = idManager;
+    }
+    
+    public String getIdManager() {   // modificat 08.03.2016
+        return idManager;
+    }
+    
+    
+    
     public String getLangKey() {
         return langKey;
     }
@@ -223,6 +237,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", idManager='" + idManager + '\'' +   // adaugat 10.03.2016
             "}";
     }
 }

@@ -26,7 +26,7 @@ public class Btr implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    //@NotNull
     @Column(name = "id_user", nullable = false)
     private Integer id_user;
     

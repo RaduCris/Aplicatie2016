@@ -8,16 +8,16 @@
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
-        <div class="form-group">
+        <!--  <div class="form-group">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                    ng-model="btr.id" readonly />
-        </div>
-        <div class="form-group">
+                    ng-model="btr.id" readonly /> 
+        </div> -->
+        <!--  <div class="form-group">
             <label class="control-label" translate="btravelappApp.btr.id_user" for="field_id_user">Id_user</label>
             <input type="number" class="form-control" name="id_user" id="field_id_user"
                     ng-model="btr.id_user"
-                    required />
+                    required readonly/>            
             <div ng-show="editForm.id_user.$invalid">
                 <p class="help-block"
                     ng-show="editForm.id_user.$error.required" translate="entity.validation.required">
@@ -28,9 +28,24 @@
                     This field should be a number.
                 </p>
             </div>
-        </div>
+        </div> 	modificat 14.03.2016 -->				
         <div class="form-group">
             <label class="control-label" translate="btravelappApp.btr.status" for="field_status">Status</label>
+            <select class="form-control" id="field_status"  name="field_status" ng-model="btr.field_status" readonly>
+                <option value="">Initial</option>
+                <!--  Celelalte statusuri
+                <option value="Offer">Supplier: Offer</option>
+                <option value="SAprobM1">Manager N+1: Approving</option>
+                <option value="AprobM1">Manager N+1: Approved</option>
+                <option value="RejectM1">Manager N+1: Rejected</option>
+                <option value="SAprobM2">Manager N+2: Approving</option>
+                <option value="AprobM1">Manager N+2: Approved</option>
+                <option value="RejectM2">Manager N+2: Rejected</option>
+                <option value="Tichet">Supplier: Ticket</option>
+                <option value="Completed">Completed</option>
+                -->
+            </select>
+          <!--  
             <input type="text" class="form-control" name="status" id="field_status"
                     ng-model="btr.status"
                     required />
@@ -39,10 +54,10 @@
                     ng-show="editForm.status.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
-            </div>
-        </div>
+            </div> -->
+        </div> 
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.start_date" for="field_start_date">Start_date</label>
+            <label class="control-label" translate="btravelappApp.btr.start_date" for="field_start_date">Start Date</label> <!-- modificat 14.03.2016 -->
             <input id="field_start_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="btr.start_date" is-open="datePickerForStart_date.status.opened"
             required/>
             <span class="input-group-btn">
@@ -60,7 +75,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.end_date" for="field_end_date">End_date</label>
+            <label class="control-label" translate="btravelappApp.btr.end_date" for="field_end_date">End Date</label> <!-- modificat 14.03.2016 -->
             <input id="field_end_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="btr.end_date" is-open="datePickerForEnd_date.status.opened"
             required/>
             <span class="input-group-btn">
@@ -78,10 +93,15 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.assigned_to" for="field_assigned_to">Assigned_to</label>
-            <input type="number" class="form-control" name="assigned_to" id="field_assigned_to"
+            <label class="control-label" translate="btravelappApp.btr.assigned_to" for="field_assigned_to">Assigned To</label> <!-- modificat 14.03.2016 -->
+            <!-- modificare 14.03.2016 -->
+             <select class="form-control" id="field_assigned_to" name="field_assigned_to" ng-model="btr.user" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+             </select>
+            
+            <!-- <input type="number" class="form-control" name="assigned_to" id="field_assigned_to"
                     ng-model="btr.assigned_to"
-                    required />
+                    required />-->
             <div ng-show="editForm.assigned_to.$invalid">
                 <p class="help-block"
                     ng-show="editForm.assigned_to.$error.required" translate="entity.validation.required">
@@ -94,10 +114,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.assigned_from" for="field_assigned_from">Assigned_from</label>
+            <label class="control-label" translate="btravelappApp.btr.assigned_from" for="field_assigned_from">Assigned From</label> <!-- modificat 14.03.2016 -->
             <input type="number" class="form-control" name="assigned_from" id="field_assigned_from"
                     ng-model="btr.assigned_from"
-                    required />
+                     readonly/>
             <div ng-show="editForm.assigned_from.$invalid">
                 <p class="help-block"
                     ng-show="editForm.assigned_from.$error.required" translate="entity.validation.required">
@@ -122,7 +142,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.center_cost" for="field_center_cost">Center_cost</label>
+            <label class="control-label" translate="btravelappApp.btr.center_cost" for="field_center_cost">Center Cost</label> <!-- modificat 14.03.2016 -->
             <input type="text" class="form-control" name="center_cost" id="field_center_cost"
                     ng-model="btr.center_cost"
                     required />
@@ -134,7 +154,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.request_date" for="field_request_date">Request_date</label>
+            <label class="control-label" translate="btravelappApp.btr.request_date" for="field_request_date">Request Date</label> <!-- modificat 14.03.2016 -->
             <input id="field_request_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="btr.request_date" is-open="datePickerForRequest_date.status.opened"
             required/>
             <span class="input-group-btn">
@@ -152,7 +172,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="btravelappApp.btr.last_modified_date" for="field_last_modified_date">Last_modified_date</label>
+            <label class="control-label" translate="btravelappApp.btr.last_modified_date" for="field_last_modified_date">Last Modified Date</label> <!-- modificat 14.03.2016 -->
             <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="btr.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
             required/>
             <span class="input-group-btn">
@@ -171,8 +191,8 @@
         </div>
 
         <div class="form-group">
-            <label translate="btravelappApp.btr.user" for="field_user">user</label>
-            <select class="form-control" id="field_user" name="user" ng-model="btr.user" ng-options="user as user.login for user in users track by user.id">
+            <label translate="btravelappApp.btr.user" for="field_user">Employee</label> <!-- modificat 14.03.2016 -->
+            <select class="form-control" id="field_user" name="field_user" ng-model="btr.field_user" ng-options="user as user.login for user in users track by user.id">
                 <option value=""></option>
             </select>
         </div>

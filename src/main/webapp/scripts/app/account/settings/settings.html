@@ -82,7 +82,13 @@
                     <label for="langKey" translate="settings.form.language">Language</label>
                     <select id="langKey" name="langKey" class="form-control" ng-model="settingsAccount.langKey" ng-controller="LanguageController" ng-options="code as (code | findLanguageFromKey) for code in languages"></select>
                 </div>
-
+                
+				<div class="form-group"> <!-- modificat 09.03.2016 -->
+					<label class="control-label" for="id_manager" translate="global.form.id_manager">Manager</label>
+					<input type="text" class="form-control" id="id_manager" name="id_manager" placeholder="{{'settings.form.id_manager.placeholder' | translate}}"
+                           ng-model="settingsAccount.id_manager" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+				</div>
+				
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="settings.form.button">Save</button>
             </form>
         </div>

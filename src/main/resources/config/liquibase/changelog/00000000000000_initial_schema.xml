@@ -49,6 +49,9 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            <column name="id_manager" type="varchar(10)">
+                <constraints nullable="true" /> <!-- adaugat 08.09.2016 -->
+            </column>
         </createTable>
         
         <createIndex indexName="idx_user_login"

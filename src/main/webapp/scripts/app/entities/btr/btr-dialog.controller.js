@@ -4,8 +4,18 @@ angular.module('btravelappApp').controller('BtrDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Btr', 'User', 'Expense',
         function($scope, $stateParams, $uibModalInstance, entity, Btr, User, Expense) {
 
+    	//AM INCERCAT DE AICI SA PREIAU USER-UL CARE FACE BTR-UL
+    	//$meteor.autorun($scope, function(){
+    	//    var user = (Meteor.users.find({_id: Meteor.userId()}).fetch())[0];
+    	//    if( user != null ){
+    	//        $scope.me = user;
+    	//    }
+    	//}); 	
+    	
         $scope.btr = entity;
         $scope.users = User.query();
+        console.log($scope.users); //////
+        
         $scope.expenses = Expense.query();
         $scope.load = function(id) {
             Btr.get({id : id}, function(result) {

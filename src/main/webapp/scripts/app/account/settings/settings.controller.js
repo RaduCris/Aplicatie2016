@@ -36,7 +36,8 @@ angular.module('btravelappApp')
                 firstName: account.firstName,
                 langKey: account.langKey,
                 lastName: account.lastName,
-                login: account.login
+                login: account.login,
+                idManager: account.idManager //modificat 09.03.2016
             }
         }
     });

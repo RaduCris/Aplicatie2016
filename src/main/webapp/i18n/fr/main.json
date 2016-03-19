@@ -1,7 +1,7 @@
 {
     "main": {
-        "title": "Bienvenue, Java Hipster !",
-        "subtitle": "Ceci est votre page d'accueil",
+        "title": "Bienvenue à notre demande de BTR !",
+        "subtitle": "Nous grandissons ensemble.",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },

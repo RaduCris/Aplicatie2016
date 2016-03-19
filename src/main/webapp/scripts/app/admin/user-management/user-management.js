@@ -60,7 +60,7 @@ angular.module('btravelappApp')
                                     id: null, login: null, firstName: null, lastName: null, email: null,
                                     activated: true, langKey: null, createdBy: null, createdDate: null,
                                     lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
-                                    resetKey: null, authorities: null
+                                    resetKey: null, authorities: null, idManager: null // modificat 11.03.2016
                                 };
                             }
                         }
